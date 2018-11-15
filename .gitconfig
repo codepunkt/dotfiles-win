@@ -1,6 +1,6 @@
 [user]
-  name = Christoph Werner
-  email = christoph@codepunkt.de
+  name = John Doe
+  email = johndoe@example.com
 
 [fetch]
   prune = true

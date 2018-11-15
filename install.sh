@@ -190,6 +190,10 @@ install() {
     wget -O ~/z.sh https://raw.githubusercontent.com/rupa/z/master/z.sh &> /dev/null
     spinner_stop
   fi
+
+  echo ""
+  echo "Successfully installed codepunkt/dotfiles 🔥"
+  echo "Don't forget to edit your ~/.gitconfig user information!:"
 }
 
 install
