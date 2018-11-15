@@ -154,7 +154,7 @@ fi
 
 # npm packages
 spinner_start "installing npm packages"
-sudo -Hu ${THIS_USER} bash -c '. ~/.nvm/nvm.sh && npm i -g yarn create-react-app np npm-name-cli tldr ndb yo fkill-cli' &> /dev/null
+sudo -Hu ${THIS_USER} bash -c '. ~/.nvm/nvm.sh && npm i -g yarn create-react-app np npm-name-cli tldr ndb yo diff-so-fancy fkill-cli' &> /dev/null
 spinner_stop
 
 # symlink config files
