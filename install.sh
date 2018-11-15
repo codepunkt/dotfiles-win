@@ -37,14 +37,11 @@ spinner_stop() {
 }
 
 install() {
+  sudo echo "Installing codepunkt/dotfiles 🚀"
+  echo ""
+
   # store current user
   THIS_USER=`pstree -lu -s $$ | grep --max-count=1 -o '([^)]*)' | head -n 1 | sed 's/[()]//g'`
-
-  # require sudo privileges
-  if [ $EUID != 0 ]; then
-    sudo "$0" "$@"
-    exit $?
-  fi
 
   # update packages
   spinner_start "updating packages"
