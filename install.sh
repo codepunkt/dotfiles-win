@@ -43,7 +43,7 @@ install() {
   # store current user
   THIS_USER=`pstree -lu -s $$ | grep --max-count=1 -o '([^)]*)' | head -n 1 | sed 's/[()]//g'`
 
-  # update packages
+  # update apt packages
   spinner_start "updating apt packages"
   sudo apt update -qq &> /dev/null && \
     sudo apt dist-upgrade -y -qq &> /dev/null && \
@@ -51,9 +51,16 @@ install() {
     sudo apt autoclean -y -qq &> /dev/null
   spinner_stop
 
-  # install packages
-  spinner_start "installing additional apt packages"
+  # add apt repositories
+  spinner_start "adding apt repositories"
+  sudo apt-add-repository ppa:ansible/ansible &> /dev/null
+  sudo apt update -qq &> /dev/null
+  spinner_stop
+
+  # install apt packages
+  spinner_start "installing apt packages"
   sudo apt -y -qq install \
+    ansible \
     apt-transport-https \
     build-essential \
     ca-certificates \
