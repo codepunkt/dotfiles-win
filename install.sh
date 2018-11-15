@@ -179,13 +179,24 @@ install() {
   fi
 
   # bat
-  if [ -x "$(command -v wat)" ]; then
+  if [ -x "$(command -v bat)" ]; then
     echo "$checkmark bat is installed"
   else
     spinner_start "installing bat"
     wget -O ~/bat_0.9.0_amd64.deb https://github.com/sharkdp/bat/releases/download/v0.9.0/bat_0.9.0_amd64.deb &> /dev/null
     sudo dpkg -i ~/bat_0.9.0_amd64.deb &> /dev/null
     rm -f ~/bat_0.9.0_amd64.deb &> /dev/null
+    spinner_stop
+  fi
+
+  # fd
+  if [ -x "$(command -v fd)" ]; then
+    echo "$checkmark fd is installed"
+  else
+    spinner_start "installing fd"
+    wget -O ~/fd_7.2.0_amd64.deb https://github.com/sharkdp/fd/releases/download/v7.2.0/fd_7.2.0_amd64.deb &> /dev/null
+    sudo dpkg -i ~/fd_7.2.0_amd64.deb &> /dev/null
+    rm -f ~/fd_7.2.0_amd64.deb &> /dev/null
     spinner_stop
   fi
 
