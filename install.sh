@@ -70,6 +70,7 @@ install() {
     jq \
     python-pip \
     software-properties-common \
+    unzip \
     zsh \
     &> /dev/null
   spinner_stop

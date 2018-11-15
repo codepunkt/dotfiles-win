@@ -103,6 +103,9 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+# add .bin to path
+export PATH=$HOME/.bin:$PATH
+
 # Tell zsh not to nice background processes
 # https://github.com/Microsoft/WSL/issues/1887
 unsetopt BG_NICE
