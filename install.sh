@@ -44,7 +44,7 @@ install() {
   THIS_USER=`pstree -lu -s $$ | grep --max-count=1 -o '([^)]*)' | head -n 1 | sed 's/[()]//g'`
 
   # update packages
-  spinner_start "updating packages"
+  spinner_start "updating apt packages"
   sudo apt update -qq &> /dev/null && \
     sudo apt dist-upgrade -y -qq &> /dev/null && \
     sudo apt autoremove -y -qq &> /dev/null && \
@@ -52,7 +52,7 @@ install() {
   spinner_stop
 
   # install packages
-  spinner_start "installing additional packages"
+  spinner_start "installing additional apt packages"
   sudo apt -y -qq install \
     apt-transport-https \
     build-essential \
@@ -71,7 +71,7 @@ install() {
     spinner_start "pulling dotfile updates"
     cd ~/.dotfiles && \
       git pull &> /dev/null && \
-      cd -
+      cd - &> /dev/null
     spinner_stop
   else
     spinner_start "cloning dotfiles"
@@ -193,7 +193,7 @@ install() {
 
   echo ""
   echo "Successfully installed codepunkt/dotfiles 🔥"
-  echo "Don't forget to edit your ~/.gitconfig user information!:"
+  echo "Don't forget to edit your ~/.gitconfig user information!"
 }
 
 install
