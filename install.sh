@@ -59,6 +59,7 @@ sudo apt -y -qq install \
   ca-certificates \
   curl \
   git \
+  jq \
   python-pip \
   software-properties-common \
   zsh \
@@ -171,5 +172,26 @@ if grep -qE "(Microsoft|WSL)" /proc/version &> /dev/null; then
   ln -sf /mnt/c/Program\ Files\ \(x86\)/Google/Chrome/Application/chrome.exe ~/.bin/chrome
   spinner_stop
 fi
+
+# bat
+if [ -x "$(command -v wat)" ]; then
+  echo "$checkmark bat is installed"
+else
+  spinner_start "installing bat"
+  wget -O ~/bat_0.9.0_amd64.deb https://github.com/sharkdp/bat/releases/download/v0.9.0/bat_0.9.0_amd64.deb &> /dev/null
+  sudo dpkg -i ~/bat_0.9.0_amd64.deb &> /dev/null
+  rm -f ~/bat_0.9.0_amd64.deb &> /dev/null
+  spinner_stop
+fi
+
+# z
+if [ -x "$(command -v z)" ]; then
+  echo "$checkmark z is installed"
+else
+  spinner_start "installing z"
+  wget -O ~/z.sh https://raw.githubusercontent.com/rupa/z/master/z.sh &> /dev/null
+  spinner_stop
+fi
+
 
 #https://github.com/jieverson/dotfiles-win/blob/master/install.sh
