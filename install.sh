@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 { # this ensures the entire script is downloaded #
 
@@ -115,8 +115,6 @@ else
   git clone https://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh &> /dev/null
   spinner_stop
 fi
-
-# optional: link zsh themes that come with this repo
 
 # zsh syntax highlighting
 if [ -d ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting ]; then
