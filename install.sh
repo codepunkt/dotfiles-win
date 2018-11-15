@@ -2,7 +2,7 @@
 
 { # this ensures the entire script is downloaded #
 
-checkmark="$(tput setaf 2)✔$(tput sgr0)"
+CHECK_MARK="$(tput setaf 2)✔$(tput sgr0)"
 
 spinner_abort() {
   [ -n "$SPINNER_PID" ] && kill $SPINNER_PID
@@ -33,7 +33,7 @@ spinner_start() {
 spinner_stop() {
   kill $SPINNER_PID &> /dev/null
   wait $SPINNER_PID &> /dev/null
-  echo -e "$checkmark\033[?25h"
+  echo -e "$CHECK_MARK\033[?25h"
 }
 
 install() {
@@ -66,6 +66,7 @@ install() {
     ca-certificates \
     curl \
     git \
+    htop \
     jq \
     python-pip \
     software-properties-common \
@@ -93,12 +94,12 @@ install() {
     ssh-keygen -t rsa -N "" -f ~/.ssh/id_rsa  &> /dev/null
     spinner_stop
   else
-    echo "$checkmark ssh key exists"
+    echo "$CHECK_MARK ssh key exists"
   fi
 
   # docker
   if [ -x "$(command -v docker)" ]; then
-    echo "$checkmark docker is installed"
+    echo "$CHECK_MARK docker is installed"
   else
     spinner_start "installing docker"
     sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add - &> /dev/null && \
@@ -180,7 +181,7 @@ install() {
 
   # bat
   if [ -x "$(command -v bat)" ]; then
-    echo "$checkmark bat is installed"
+    echo "$CHECK_MARK bat is installed"
   else
     spinner_start "installing bat"
     wget -O ~/bat_0.9.0_amd64.deb https://github.com/sharkdp/bat/releases/download/v0.9.0/bat_0.9.0_amd64.deb &> /dev/null
@@ -191,7 +192,7 @@ install() {
 
   # fd
   if [ -x "$(command -v fd)" ]; then
-    echo "$checkmark fd is installed"
+    echo "$CHECK_MARK fd is installed"
   else
     spinner_start "installing fd"
     wget -O ~/fd_7.2.0_amd64.deb https://github.com/sharkdp/fd/releases/download/v7.2.0/fd_7.2.0_amd64.deb &> /dev/null
@@ -202,7 +203,7 @@ install() {
 
   # z
   if [ -x "$(command -v z)" ]; then
-    echo "$checkmark z is installed"
+    echo "$CHECK_MARK z is installed"
   else
     spinner_start "installing z"
     wget -O ~/z.sh https://raw.githubusercontent.com/rupa/z/master/z.sh &> /dev/null
