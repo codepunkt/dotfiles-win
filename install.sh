@@ -1,5 +1,7 @@
 #!/bin/bash
 
+{ # this ensures the entire script is downloaded #
+
 checkmark="$(tput setaf 2)✔$(tput sgr0)"
 
 spinner_abort() {
@@ -193,5 +195,4 @@ else
   spinner_stop
 fi
 
-
-#https://github.com/jieverson/dotfiles-win/blob/master/install.sh
+} # this ensures the entire script is downloaded #
