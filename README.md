@@ -1,7 +1,7 @@
-# (Mostly WSL) Dotfiles
+# Dotfiles
 
 ## Installation
 
-```
-curl https://raw.githubusercontent.com/codepunkt/dotfiles-win/master/install.sh | bash
+```bash
+wget -qO- https://raw.githubusercontent.com/codepunkt/dotfiles-win/master/install.sh | bash
 ```

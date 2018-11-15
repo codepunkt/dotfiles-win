@@ -123,12 +123,12 @@ install() {
     spinner_stop
   else
     spinner_start "installing zsh-syntax-highlighting"
-    git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
+    git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting &> /dev/null
     spinner_stop
   fi
 
   # nvm
-  if [ -d ~/.dotfiles ]; then
+  if [ -d ~/.nvm ]; then
     spinner_start "updating nvm"
     cd ~/.nvm && \
       git pull &> /dev/null && \
